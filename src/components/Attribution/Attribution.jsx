@@ -1,6 +1,6 @@
 export const Attribution = () => {
   return (
-    <div class="attribution">
+    <div >
       Challenge by
       <a
         href="https://www.frontendmentor.io?ref=challenge"
@@ -10,7 +10,7 @@ export const Attribution = () => {
         Frontend Mentor
       </a>
       . Coded by
-      <a
+       <a
         href="https://github.com/Kate-Kitkat19"
         target="_blank"
         rel="noreferrer"
