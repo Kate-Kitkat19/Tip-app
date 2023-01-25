@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Attribution } from './Attribution/Attribution';
-import { Form } from './Form/Form';
-import { Output } from './Output/Output';
+import { Attribution } from '../Attribution/Attribution';
+import { Form } from '../Form/Form';
+import { Output } from '../Output/Output';
+import { AppAtyled, Container, Title } from './App.styled';
 
 export const App = () => {
   const [bill, setBill] = useState(0);
@@ -36,15 +37,17 @@ export const App = () => {
   }
 
   return (
-    <div>
-      <Form {...formProps}></Form>
-      <br></br>
-      <Output
-        tipPerPerson={countTipPerPerson()}
-        totalPerPerson={countTotalSum()}
-      ></Output>
-      <br></br>
+    <Container>
+      <Title>Splitter</Title>
+      <AppAtyled>
+        <Form {...formProps}></Form>
+
+        <Output
+          tipPerPerson={countTipPerPerson()}
+          totalPerPerson={countTotalSum()}
+        ></Output>
+      </AppAtyled>
       <Attribution></Attribution>
-    </div>
+    </Container>
   );
 };

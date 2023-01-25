@@ -13,7 +13,7 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
       <label>
         Bill
         <input
-          type="number"
+          type="text"
           name="bill"
           onChange={e => setBill(Number(e.target.value))}
         ></input>
@@ -32,7 +32,7 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
           );
         })}
         <input
-          type="number"
+          type="text"
           onChange={e => setPerc(Number(e.target.value))}
         ></input>
       </label>
