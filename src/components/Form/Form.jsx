@@ -1,3 +1,12 @@
+import {
+  FormStyled,
+  Label,
+  BtnsWrapper,
+  Input,
+  InputBtns,
+  InputCustom,
+} from './Form.styled';
+
 export const Form = ({ setBill, setPerc, setPeople }) => {
   const tipOptions = [5, 10, 15, 25, 50];
 
@@ -9,40 +18,43 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
   }
 
   return (
-    <form>
-      <label>
+    <FormStyled>
+      <Label>
         Bill
-        <input
+        <Input
           type="text"
           name="bill"
           onChange={e => setBill(Number(e.target.value))}
-        ></input>
-      </label>
-      <label>
+        ></Input>
+      </Label>
+      <Label>
         {' '}
         Select tip %
-        {tipOptions.map(item => {
-          return (
-            <input
-              type="button"
-              value={item + '%'}
-              key={item}
-              onClick={() => setPerc(item)}
-            ></input>
-          );
-        })}
-        <input
-          type="text"
-          onChange={e => setPerc(Number(e.target.value))}
-        ></input>
-      </label>
-      <label>
+        <BtnsWrapper>
+          {tipOptions.map(item => {
+            return (
+              <InputBtns
+                type="button"
+                value={item + '%'}
+                key={item}
+                onClick={() => setPerc(item)}
+              ></InputBtns>
+            );
+          })}
+          <InputCustom
+            type="text"
+            placeholder="Custom"
+            onChange={e => setPerc(Number(e.target.value))}
+          ></InputCustom>
+        </BtnsWrapper>
+      </Label>
+      <Label>
         Number of people
-        <input
+        <Input
           type="number"
           onChange={e => handlePeopleInputChange(Number(e.target.value))}
-        ></input>
-      </label>
-    </form>
+        ></Input>
+      </Label>
+    </FormStyled>
   );
 };

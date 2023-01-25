@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Attribution } from '../Attribution/Attribution';
 import { Form } from '../Form/Form';
 import { Output } from '../Output/Output';
 import { AppAtyled, Container, Title } from './App.styled';
@@ -33,7 +32,8 @@ export const App = () => {
 
     const billSplit = bill / people;
     const tipSplit = Number(countTipPerPerson());
-    return billSplit + tipSplit;
+    const total = billSplit + tipSplit;
+    return total.toFixed(2);
   }
 
   return (
@@ -47,7 +47,6 @@ export const App = () => {
           totalPerPerson={countTotalSum()}
         ></Output>
       </AppAtyled>
-      <Attribution></Attribution>
     </Container>
   );
 };
