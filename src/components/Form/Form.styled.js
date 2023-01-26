@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Input, InputLeftElement } from '@chakra-ui/react';
 export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
@@ -15,9 +15,17 @@ export const Label = styled.label`
   color: #5e7a7d;
 `;
 
-export const Input = styled.input`
+export const InputIcons = styled(InputLeftElement)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(17px, 24px);
+`;
+
+export const InputStyled = styled(Input)`
+  position: relative;
   margin-top: 6px;
-  width: 311px;
+  width: 100%;
   height: 48px;
   background: #f3f9fa;
   border-radius: 5px;
@@ -26,6 +34,9 @@ export const Input = styled.input`
   line-height: 1.5;
   color: #00474b;
   cursor: pointer;
+  border: transparent;
+  text-align: right;
+  padding-right: 16px;
   &:focus {
     outline: none;
     border: 2px solid #26c2ae;
@@ -45,6 +56,7 @@ export const InputBtns = styled.input`
   line-height: 1.5;
   text-align: center;
   border-radius: 5px;
+  border: transparent;
 `;
 
 export const BtnsWrapper = styled.div`
@@ -77,13 +89,16 @@ export const InputCustom = styled.input`
   line-height: 1.5;
   color: #00474b;
   cursor: pointer;
+  outline: none;
+  border: transparent;
+
   &:focus {
     outline: none;
     border: 2px solid #26c2ae;
   }
 
   &::placeholder {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.5;
     font-weight: 700;
     text-align: right;

@@ -2,10 +2,15 @@ import {
   FormStyled,
   Label,
   BtnsWrapper,
-  Input,
   InputBtns,
   InputCustom,
+  InputStyled,
+  InputIcons,
 } from './Form.styled';
+import { InputGroup } from '@chakra-ui/react';
+
+import { MyIcon } from './PersonIcon';
+import { DollarIcon } from './DollarIcon';
 
 export const Form = ({ setBill, setPerc, setPeople }) => {
   const tipOptions = [5, 10, 15, 25, 50];
@@ -21,11 +26,15 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
     <FormStyled>
       <Label>
         Bill
-        <Input
-          type="text"
-          name="bill"
-          onChange={e => setBill(Number(e.target.value))}
-        ></Input>
+        <InputGroup>
+          <InputIcons pointerEvents="none" children={<DollarIcon />} />
+          <InputStyled
+            type="text"
+            name="bill"
+            onChange={e => setBill(Number(e.target.value))}
+            placeholder="0"
+          ></InputStyled>
+        </InputGroup>
       </Label>
       <Label>
         {' '}
@@ -50,10 +59,14 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
       </Label>
       <Label>
         Number of people
-        <Input
-          type="number"
-          onChange={e => handlePeopleInputChange(Number(e.target.value))}
-        ></Input>
+        <InputGroup>
+          <InputIcons pointerEvents="none" children={<MyIcon />} />
+          <InputStyled
+            type="number"
+            onChange={e => handlePeopleInputChange(Number(e.target.value))}
+            placeholder="0"
+          ></InputStyled>
+        </InputGroup>
       </Label>
     </FormStyled>
   );

@@ -8,6 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 `;
 
 export const AppAtyled = styled.div`
@@ -20,19 +21,9 @@ export const AppAtyled = styled.div`
     gap: 15px;
   }
 
-  margin-bottom: 87px;
+  margin-top: 60px;
   width: 90%;
   @media screen and (min-width: 1200px) {
     width: 920px;
   }
-  
-`;
-
-export const Title = styled.h2`
-  text-transform: uppercase;
-  font-size: 30px;
-  color: #3d6666;
-  width: 86.66px;
-  word-break: break-all;
-  margin-bottom: 80px;
 `;

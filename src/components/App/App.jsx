@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Form } from '../Form/Form';
 import { Output } from '../Output/Output';
-import { AppAtyled, Container, Title } from './App.styled';
-
+import { AppAtyled, Container } from './App.styled';
+import { LogoMain } from 'images/Logo';
 export const App = () => {
   const [bill, setBill] = useState(0);
   const [perc, setPerc] = useState(0);
@@ -38,7 +38,8 @@ export const App = () => {
 
   return (
     <Container>
-      <Title>Splitter</Title>
+      
+      <LogoMain></LogoMain>
       <AppAtyled>
         <Form {...formProps}></Form>
 
