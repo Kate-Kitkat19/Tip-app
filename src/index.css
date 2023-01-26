@@ -13,7 +13,4 @@ code {
     monospace;
 }
 
-svg:not(:root) {
-  overflow: auto;
-  z-index: 1;
-}
+

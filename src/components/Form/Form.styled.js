@@ -57,6 +57,7 @@ export const InputBtns = styled.input`
   text-align: center;
   border-radius: 5px;
   border: transparent;
+
 `;
 
 export const BtnsWrapper = styled.div`

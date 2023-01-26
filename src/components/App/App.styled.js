@@ -6,9 +6,9 @@ export const Container = styled.div`
   background-color: #c5e4e7;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 25px;
+  gap: 35px;
   padding: 20px;
 `;
 

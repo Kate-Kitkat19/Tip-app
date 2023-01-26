@@ -13,15 +13,32 @@ import { DollarIcon } from './DollarIcon';
 import { forwardRef } from 'react';
 
 export const Form = forwardRef(function Form(props, ref) {
-  console.log(ref, 'ref in Form');
   const tipOptions = [5, 10, 15, 25, 50];
   const { setBill, setPeople, setPerc } = props;
 
+  let currentPercBtn = null;
   function handlePeopleInputChange(value) {
     if (value === 0) {
       return;
     }
     setPeople(value);
+  }
+
+  function handleBtnClick(e) {
+    const currentBtn = e.target;
+    currentPercBtn = currentBtn;
+    setPerc(currentBtn.value.slice(0, -1));
+
+    // if (currentPercBtn === currentBtn) {
+    //   console.log('currentBtn if equal', currentBtn);
+    //   currentBtn.style.backgroundColor = '#00474b';
+    // } else {
+    //   console.log('currentPercBtn if different', currentPercBtn);
+    //   currentPercBtn.style.backgroundColor = '#00474b';
+    //   console.log('currentBtn if diff', currentBtn);
+    //   currentBtn.style.backgroundColor = 'red';
+
+    // }
   }
 
   return (
@@ -48,7 +65,7 @@ export const Form = forwardRef(function Form(props, ref) {
                 type="button"
                 value={item + '%'}
                 key={item}
-                onClick={() => setPerc(item)}
+                onClick={e => handleBtnClick(e)}
               ></InputBtns>
             );
           })}

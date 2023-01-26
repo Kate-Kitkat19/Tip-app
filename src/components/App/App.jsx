@@ -4,6 +4,8 @@ import { Output } from '../Output/Output';
 import { AppAtyled, Container } from './App.styled';
 import { LogoMain } from 'images/Logo';
 import { useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const [bill, setBill] = useState(0);
@@ -49,6 +51,7 @@ export const App = () => {
 
   return (
     <Container>
+      <ToastContainer></ToastContainer>
       <LogoMain></LogoMain>
       <AppAtyled>
         <Form {...formProps} ref={formRef}></Form>
