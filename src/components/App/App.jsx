@@ -4,7 +4,7 @@ import { Output } from '../Output/Output';
 import { AppAtyled, Container } from './App.styled';
 import { LogoMain } from 'images/Logo';
 import { useRef } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {

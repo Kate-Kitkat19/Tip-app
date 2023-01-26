@@ -16,7 +16,6 @@ export const Form = forwardRef(function Form(props, ref) {
   const tipOptions = [5, 10, 15, 25, 50];
   const { setBill, setPeople, setPerc } = props;
 
-  let currentPercBtn = null;
   function handlePeopleInputChange(value) {
     if (value === 0) {
       return;
@@ -26,7 +25,7 @@ export const Form = forwardRef(function Form(props, ref) {
 
   function handleBtnClick(e) {
     const currentBtn = e.target;
-    currentPercBtn = currentBtn;
+  
     setPerc(currentBtn.value.slice(0, -1));
 
     // if (currentPercBtn === currentBtn) {
