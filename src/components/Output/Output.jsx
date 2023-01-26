@@ -1,19 +1,33 @@
-export const Output = ({ tipPerPerson, totalPerPerson }) => {
+import {
+  Wrapper,
+  Button,
+  Line,
+  Span,
+  WrapForText,
+  Numbers,
+} from './Output.styled';
+
+export const Output = ({ tipPerPerson, totalPerPerson, resetForm }) => {
+
   return (
-    <div>
-      <div>
-        <p>
-          Tip amount<span>/ person</span>
-        </p>
-        <span> $ {tipPerPerson} </span>
-      </div>
-      <div>
-        <p>
-          Total<span>/ person</span>
-        </p>
-        <span> $ {totalPerPerson} </span>
-      </div>
-      <button type="reset">Reset</button>
-    </div>
+    <Wrapper>
+      <Line>
+        <WrapForText>
+          <span>Tip amount</span>
+          <Span>/ person</Span>
+        </WrapForText>
+        <Numbers> $ {tipPerPerson ?? '0.00'} </Numbers>
+      </Line>
+      <Line>
+        <WrapForText>
+          <span>Total</span>
+          <Span>/ person</Span>
+        </WrapForText>
+        <Numbers> $ {totalPerPerson ?? '0.00'} </Numbers>
+      </Line>
+      <Button type="reset" onClick={resetForm}>
+        Reset
+      </Button>
+    </Wrapper>
   );
 };

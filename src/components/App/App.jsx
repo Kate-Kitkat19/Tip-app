@@ -3,16 +3,27 @@ import { Form } from '../Form/Form';
 import { Output } from '../Output/Output';
 import { AppAtyled, Container } from './App.styled';
 import { LogoMain } from 'images/Logo';
+import { useRef } from 'react';
+
 export const App = () => {
   const [bill, setBill] = useState(0);
   const [perc, setPerc] = useState(0);
-  const [people, setPeople] = useState(1);
+  const [people, setPeople] = useState(0);
+
+  const formRef = useRef(null);
 
   const formProps = {
     setBill,
     setPerc,
     setPeople,
   };
+
+  function handleClick() {
+    formRef.current.reset();
+    setBill(0);
+    setPerc(0);
+    setPeople(0);
+  }
 
   function countTipPerPerson() {
     if (bill === 0 || perc === 0 || people === 0) {
@@ -38,14 +49,14 @@ export const App = () => {
 
   return (
     <Container>
-      
       <LogoMain></LogoMain>
       <AppAtyled>
-        <Form {...formProps}></Form>
+        <Form {...formProps} ref={formRef}></Form>
 
         <Output
           tipPerPerson={countTipPerPerson()}
           totalPerPerson={countTotalSum()}
+          resetForm={handleClick}
         ></Output>
       </AppAtyled>
     </Container>

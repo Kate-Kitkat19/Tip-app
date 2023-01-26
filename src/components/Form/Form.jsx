@@ -8,12 +8,14 @@ import {
   InputIcons,
 } from './Form.styled';
 import { InputGroup } from '@chakra-ui/react';
-
 import { MyIcon } from './PersonIcon';
 import { DollarIcon } from './DollarIcon';
+import { forwardRef } from 'react';
 
-export const Form = ({ setBill, setPerc, setPeople }) => {
+export const Form = forwardRef(function Form(props, ref) {
+  console.log(ref, 'ref in Form');
   const tipOptions = [5, 10, 15, 25, 50];
+  const { setBill, setPeople, setPerc } = props;
 
   function handlePeopleInputChange(value) {
     if (value === 0) {
@@ -23,7 +25,7 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
   }
 
   return (
-    <FormStyled>
+    <FormStyled ref={ref}>
       <Label>
         Bill
         <InputGroup>
@@ -62,7 +64,7 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
         <InputGroup>
           <InputIcons pointerEvents="none" children={<MyIcon />} />
           <InputStyled
-            type="number"
+            type="text"
             onChange={e => handlePeopleInputChange(Number(e.target.value))}
             placeholder="0"
           ></InputStyled>
@@ -70,4 +72,4 @@ export const Form = ({ setBill, setPerc, setPeople }) => {
       </Label>
     </FormStyled>
   );
-};
+});

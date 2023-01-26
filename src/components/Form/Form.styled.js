@@ -62,6 +62,7 @@ export const InputBtns = styled.input`
 export const BtnsWrapper = styled.div`
   display: flex;
   width: 311px;
+  padding-top: 16px;
   @media screen and (min-width: 768px) {
     width: 379px;
   }
