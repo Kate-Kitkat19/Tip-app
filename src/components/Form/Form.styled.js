@@ -43,7 +43,7 @@ export const InputStyled = styled(Input)`
   }
 `;
 
-export const InputBtns = styled.input`
+export const InputBtns = styled.button`
   display: block;
   width: 147px;
   @media screen and (min-width: 768px) {
@@ -57,7 +57,6 @@ export const InputBtns = styled.input`
   text-align: center;
   border-radius: 5px;
   border: transparent;
-
 `;
 
 export const BtnsWrapper = styled.div`

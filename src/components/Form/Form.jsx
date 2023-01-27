@@ -14,30 +14,46 @@ import { forwardRef } from 'react';
 
 export const Form = forwardRef(function Form(props, ref) {
   const tipOptions = [5, 10, 15, 25, 50];
-  const { setBill, setPeople, setPerc } = props;
+
+  const { setBillValue, setPeopleValue, setCustomTip } = props;
+
+  const buttons = tipOptions.map(item => {
+    return (
+      <InputBtns
+        type="button"
+        key={item}
+        onClick={e => handleBtnClick(e)}
+        value={item}
+        active={false}
+      >
+        {item + '%'}
+      </InputBtns>
+    );
+  });
 
   function handlePeopleInputChange(value) {
     if (value === 0) {
       return;
     }
-    setPeople(value);
+    setPeopleValue(value);
   }
 
   function handleBtnClick(e) {
     const currentBtn = e.target;
-  
-    setPerc(currentBtn.value.slice(0, -1));
 
-    // if (currentPercBtn === currentBtn) {
-    //   console.log('currentBtn if equal', currentBtn);
-    //   currentBtn.style.backgroundColor = '#00474b';
-    // } else {
-    //   console.log('currentPercBtn if different', currentPercBtn);
-    //   currentPercBtn.style.backgroundColor = '#00474b';
-    //   console.log('currentBtn if diff', currentBtn);
-    //   currentBtn.style.backgroundColor = 'red';
-
-    // }
+    setCustomTip(currentBtn.value);
+    buttons.forEach(button => {
+      if (button.props.value === Number(currentBtn.value)) {
+        console.log('It`s this button!!!', currentBtn.value);
+        // button.style.backgroundColor = '#26C2AE';
+        // button.style.color = '#00474B';
+        console.log(button.type.componentStyle);
+      } else {
+        console.log('It`s different button :( ');
+        // button.style.color = '#fff';
+        // button.style.backgroundColor = '#00474B';
+      }
+    });
   }
 
   return (
@@ -49,7 +65,7 @@ export const Form = forwardRef(function Form(props, ref) {
           <InputStyled
             type="text"
             name="bill"
-            onChange={e => setBill(Number(e.target.value))}
+            onChange={e => setBillValue(e.target.value)}
             placeholder="0"
           ></InputStyled>
         </InputGroup>
@@ -58,20 +74,11 @@ export const Form = forwardRef(function Form(props, ref) {
         {' '}
         Select tip %
         <BtnsWrapper>
-          {tipOptions.map(item => {
-            return (
-              <InputBtns
-                type="button"
-                value={item + '%'}
-                key={item}
-                onClick={e => handleBtnClick(e)}
-              ></InputBtns>
-            );
-          })}
+          {buttons}
           <InputCustom
             type="text"
             placeholder="Custom"
-            onChange={e => setPerc(Number(e.target.value))}
+            onChange={e => handleBtnClick(e)}
           ></InputCustom>
         </BtnsWrapper>
       </Label>
@@ -81,7 +88,7 @@ export const Form = forwardRef(function Form(props, ref) {
           <InputIcons pointerEvents="none" children={<MyIcon />} />
           <InputStyled
             type="text"
-            onChange={e => handlePeopleInputChange(Number(e.target.value))}
+            onChange={e => handlePeopleInputChange(e.target.value)}
             placeholder="0"
           ></InputStyled>
         </InputGroup>

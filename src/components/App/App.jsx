@@ -15,9 +15,9 @@ export const App = () => {
   const formRef = useRef(null);
 
   const formProps = {
-    setBill,
-    setPerc,
-    setPeople,
+    setBillValue,
+    setCustomTip,
+    setPeopleValue,
   };
 
   function handleClick() {
@@ -47,6 +47,43 @@ export const App = () => {
     const tipSplit = Number(countTipPerPerson());
     const total = billSplit + tipSplit;
     return total.toFixed(2);
+  }
+
+  function validateFloat(s) {
+    var rgx = /^[0-9]*\.?[0-9]*$/;
+    return s.match(rgx);
+  }
+
+  // function validateInt(s) {
+  //   const rgx = /^[0-9]*$/;
+  //   return s.match(rgx);
+  // }
+
+  function setBillValue(value) {
+    let fixedValue = value.includes(',') ? value.replace(',', '.') : value;
+
+    if (!validateFloat(fixedValue)) {
+      fixedValue = fixedValue.substring(0, value.length - 1);
+    }
+
+    setBill(parseFloat(fixedValue));
+  }
+
+  function setCustomTip(value) {
+    let tipCustom = null;
+    tipCustom = validateFloat(value)
+      ? value
+      : value.substring(0, value.length - 1);
+
+    setPerc(parseFloat(tipCustom));
+  }
+
+  function setPeopleValue(value) {
+    let peopleNumber = null;
+    peopleNumber = validateFloat(value)
+      ? value
+      : value.substring(0, value.length - 1);
+    setPeople(parseFloat(peopleNumber));
   }
 
   return (
