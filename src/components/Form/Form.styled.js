@@ -38,7 +38,8 @@ export const InputStyled = styled(Input)`
   text-align: right;
   padding-right: 16px;
   transition: border 500ms ease-in-out;
-  &:focus {
+  &:focus,
+  &:active {
     outline: none;
     border-color: ${props => props.borderColor || '#26C2AE'};
   }
@@ -47,7 +48,7 @@ export const InputStyled = styled(Input)`
 export const InputBtns = styled.button`
   display: block;
   width: 147px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     width: 117px;
   }
   height: 48px;
@@ -69,15 +70,14 @@ export const InputBtns = styled.button`
 
 export const BtnsWrapper = styled.div`
   display: flex;
-  width: 311px;
+  width: 100%;
   padding-top: 16px;
-  @media screen and (min-width: 768px) {
-    width: 379px;
-  }
+
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 16px;
-  @media screen and (min-width: 768px) {
+  gap: 6px;
+  @media screen and (min-width: 769px) {
+    width: 379px;
     gap: 14px;
   }
 `;
@@ -85,7 +85,7 @@ export const BtnsWrapper = styled.div`
 export const InputCustom = styled.input`
   display: block;
   width: 147px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     width: 117px;
   }
   height: 48px;

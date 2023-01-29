@@ -55,16 +55,12 @@ export const App = () => {
     return s.match(rgx);
   }
 
-  // function validateInt(s) {
-  //   const rgx = /^[0-9]*$/;
-  //   return s.match(rgx);
-  // }
-
   function setBillValue(value) {
     if (value === '') {
       setBill(0);
       return;
     }
+
     let fixedValue = value.includes(',') ? value.replace(',', '.') : value;
 
     if (!validateFloat(fixedValue)) {
@@ -97,7 +93,6 @@ export const App = () => {
       setError(true);
       return;
     }
-    console.log(value, 'value');
     setError(false);
     let peopleNumber = 0;
     peopleNumber = validateFloat(value)

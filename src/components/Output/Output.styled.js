@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-top: 32px;
   color: white;
   padding: 24px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     margin-left: 48px;
     margin-top: 0;
     padding: 40px;
@@ -49,9 +49,12 @@ export const Button = styled.button`
 export const Line = styled.div`
   display: flex;
   width: 100%;
-  align-items: space-between;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 769px) {
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 export const Span = styled.span`
@@ -67,7 +70,7 @@ export const WrapForText = styled.p`
 `;
 
 export const Numbers = styled.span`
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.47;
   letter-spacing: -1px;
 
