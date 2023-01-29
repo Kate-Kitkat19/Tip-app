@@ -13,23 +13,7 @@ import { DollarIcon } from './DollarIcon';
 import { forwardRef } from 'react';
 
 export const Form = forwardRef(function Form(props, ref) {
-  const tipOptions = [5, 10, 15, 25, 50];
-
   const { setBillValue, setPeopleValue, setCustomTip } = props;
-
-  const buttons = tipOptions.map(item => {
-    return (
-      <InputBtns
-        type="button"
-        key={item}
-        onClick={e => handleBtnClick(e)}
-        value={item}
-        active={false}
-      >
-        {item + '%'}
-      </InputBtns>
-    );
-  });
 
   function handlePeopleInputChange(value) {
     if (value === 0) {
@@ -39,21 +23,7 @@ export const Form = forwardRef(function Form(props, ref) {
   }
 
   function handleBtnClick(e) {
-    const currentBtn = e.target;
-
-    setCustomTip(currentBtn.value);
-    buttons.forEach(button => {
-      if (button.props.value === Number(currentBtn.value)) {
-        console.log('It`s this button!!!', currentBtn.value);
-        // button.style.backgroundColor = '#26C2AE';
-        // button.style.color = '#00474B';
-        console.log(button.type.componentStyle);
-      } else {
-        console.log('It`s different button :( ');
-        // button.style.color = '#fff';
-        // button.style.backgroundColor = '#00474B';
-      }
-    });
+    setCustomTip(e.target.value);
   }
 
   return (
@@ -74,7 +44,50 @@ export const Form = forwardRef(function Form(props, ref) {
         {' '}
         Select tip %
         <BtnsWrapper>
-          {buttons}
+          <InputBtns
+            type="button"
+            key={5}
+            onClick={e => handleBtnClick(e)}
+            value={5}
+          >
+            {5 + '%'}
+          </InputBtns>
+
+          <InputBtns
+            type="button"
+            key={10}
+            onClick={e => handleBtnClick(e)}
+            value={10}
+          >
+            {10 + '%'}
+          </InputBtns>
+
+          <InputBtns
+            type="button"
+            key={15}
+            onClick={e => handleBtnClick(e)}
+            value={15}
+          >
+            {15 + '%'}
+          </InputBtns>
+
+          <InputBtns
+            type="button"
+            key={25}
+            onClick={e => handleBtnClick(e)}
+            value={25}
+          >
+            {25 + '%'}
+          </InputBtns>
+
+          <InputBtns
+            type="button"
+            key={50}
+            onClick={e => handleBtnClick(e)}
+            value={50}
+          >
+            {50 + '%'}
+          </InputBtns>
           <InputCustom
             type="text"
             placeholder="Custom"

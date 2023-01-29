@@ -34,9 +34,10 @@ export const InputStyled = styled(Input)`
   line-height: 1.5;
   color: #00474b;
   cursor: pointer;
-  border: transparent;
+  border: 2px solid transparent;
   text-align: right;
   padding-right: 16px;
+  transition: border 500ms ease-in-out;
   &:focus {
     outline: none;
     border: 2px solid #26c2ae;
@@ -51,12 +52,19 @@ export const InputBtns = styled.button`
   }
   height: 48px;
   background-color: #00474b;
-  color: white;
+  color: #fff;
+  font-family: inherit;
   font-size: 24px;
   line-height: 1.5;
   text-align: center;
   border-radius: 5px;
   border: transparent;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+  &:focus {
+    cursor: pointer;
+    background-color: #9fe8df;
+    color: #00474b;
+  }
 `;
 
 export const BtnsWrapper = styled.div`
@@ -91,8 +99,8 @@ export const InputCustom = styled.input`
   color: #00474b;
   cursor: pointer;
   outline: none;
-  border: transparent;
-
+  border: 2px solid transparent;
+  transition: border 500ms ease-in-out;
   &:focus {
     outline: none;
     border: 2px solid #26c2ae;

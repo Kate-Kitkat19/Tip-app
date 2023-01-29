@@ -33,6 +33,12 @@ export const Button = styled.button`
   color: #00474b;
   text-transform: uppercase;
   margin-top: auto;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+  &:focus,
+  &:hover {
+    background-color: #9fe8df;
+    color: #00474b;
+  }
 `;
 
 export const Line = styled.div`
