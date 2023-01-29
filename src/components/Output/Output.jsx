@@ -8,7 +8,6 @@ import {
 } from './Output.styled';
 
 export const Output = ({ tipPerPerson, totalPerPerson, resetForm }) => {
-
   return (
     <Wrapper>
       <Line>
@@ -25,7 +24,11 @@ export const Output = ({ tipPerPerson, totalPerPerson, resetForm }) => {
         </WrapForText>
         <Numbers> $ {totalPerPerson ?? '0.00'} </Numbers>
       </Line>
-      <Button type="reset" onClick={resetForm}>
+      <Button
+        type="reset"
+        onClick={resetForm}
+        disabled={!tipPerPerson || !totalPerPerson}
+      >
         Reset
       </Button>
     </Wrapper>

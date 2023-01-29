@@ -4,13 +4,12 @@ import { Output } from '../Output/Output';
 import { AppAtyled, Container } from './App.styled';
 import { LogoMain } from 'images/Logo';
 import { useRef } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const [bill, setBill] = useState(0);
   const [perc, setPerc] = useState(0);
   const [people, setPeople] = useState(0);
+  const [error, setError] = useState(false);
 
   const formRef = useRef(null);
 
@@ -18,6 +17,7 @@ export const App = () => {
     setBillValue,
     setCustomTip,
     setPeopleValue,
+    error,
   };
 
   function handleClick() {
@@ -25,6 +25,7 @@ export const App = () => {
     setBill(0);
     setPerc(0);
     setPeople(0);
+    setError(false);
   }
 
   function countTipPerPerson() {
@@ -60,6 +61,10 @@ export const App = () => {
   // }
 
   function setBillValue(value) {
+    if (value === '') {
+      setBill(0);
+      return;
+    }
     let fixedValue = value.includes(',') ? value.replace(',', '.') : value;
 
     if (!validateFloat(fixedValue)) {
@@ -70,6 +75,10 @@ export const App = () => {
   }
 
   function setCustomTip(value) {
+    if (value === '') {
+      setPerc(0);
+      return;
+    }
     let tipCustom = null;
     tipCustom = validateFloat(value)
       ? value
@@ -79,7 +88,18 @@ export const App = () => {
   }
 
   function setPeopleValue(value) {
-    let peopleNumber = null;
+    if (value === '') {
+      setPeople(0);
+      setError(false);
+      return;
+    }
+    if (Number(value) === 0) {
+      setError(true);
+      return;
+    }
+    console.log(value, 'value');
+    setError(false);
+    let peopleNumber = 0;
     peopleNumber = validateFloat(value)
       ? value
       : value.substring(0, value.length - 1);
@@ -88,7 +108,6 @@ export const App = () => {
 
   return (
     <Container>
-      <ToastContainer></ToastContainer>
       <LogoMain></LogoMain>
       <AppAtyled>
         <Form {...formProps} ref={formRef}></Form>

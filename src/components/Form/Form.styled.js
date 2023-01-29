@@ -11,7 +11,7 @@ export const Label = styled.label`
   flex-direction: column;
   font-size: 16px;
   line-height: 1.5;
-
+  position: relative;
   color: #5e7a7d;
 `;
 
@@ -40,7 +40,7 @@ export const InputStyled = styled(Input)`
   transition: border 500ms ease-in-out;
   &:focus {
     outline: none;
-    border: 2px solid #26c2ae;
+    border-color: ${props => props.borderColor || '#26C2AE'};
   }
 `;
 
@@ -59,10 +59,10 @@ export const InputBtns = styled.button`
   text-align: center;
   border-radius: 5px;
   border: transparent;
+  cursor: pointer;
   transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
   &:focus {
-    cursor: pointer;
-    background-color: #9fe8df;
+    background-color: #26c2ae;
     color: #00474b;
   }
 `;

@@ -39,6 +39,11 @@ export const Button = styled.button`
     background-color: #9fe8df;
     color: #00474b;
   }
+  &:disabled {
+    background-color: #0d686d;
+    color: #00474b;
+    cursor: auto;
+  }
 `;
 
 export const Line = styled.div`

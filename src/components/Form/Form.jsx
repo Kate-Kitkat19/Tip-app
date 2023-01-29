@@ -11,16 +11,10 @@ import { InputGroup } from '@chakra-ui/react';
 import { MyIcon } from './PersonIcon';
 import { DollarIcon } from './DollarIcon';
 import { forwardRef } from 'react';
+import { ErrorMessage } from './ErrorMessage';
 
 export const Form = forwardRef(function Form(props, ref) {
-  const { setBillValue, setPeopleValue, setCustomTip } = props;
-
-  function handlePeopleInputChange(value) {
-    if (value === 0) {
-      return;
-    }
-    setPeopleValue(value);
-  }
+  const { setBillValue, setPeopleValue, setCustomTip, error } = props;
 
   function handleBtnClick(e) {
     setCustomTip(e.target.value);
@@ -97,12 +91,14 @@ export const Form = forwardRef(function Form(props, ref) {
       </Label>
       <Label>
         Number of people
+        {error === true && <ErrorMessage />}
         <InputGroup>
           <InputIcons pointerEvents="none" children={<MyIcon />} />
           <InputStyled
             type="text"
-            onChange={e => handlePeopleInputChange(e.target.value)}
+            onChange={e => setPeopleValue(e.target.value)}
             placeholder="0"
+            borderColor={error === true && '#E17052'}
           ></InputStyled>
         </InputGroup>
       </Label>
