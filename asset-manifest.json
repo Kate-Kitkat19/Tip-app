@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Tip-app/static/css/main.201a9a24.css",
-    "main.js": "/Tip-app/static/js/main.9f92307f.js",
+    "main.css": "/Tip-app/static/css/main.a0598caf.css",
+    "main.js": "/Tip-app/static/js/main.ea674517.js",
     "index.html": "/Tip-app/index.html",
-    "main.201a9a24.css.map": "/Tip-app/static/css/main.201a9a24.css.map",
-    "main.9f92307f.js.map": "/Tip-app/static/js/main.9f92307f.js.map"
+    "main.a0598caf.css.map": "/Tip-app/static/css/main.a0598caf.css.map",
+    "main.ea674517.js.map": "/Tip-app/static/js/main.ea674517.js.map"
   },
   "entrypoints": [
-    "static/css/main.201a9a24.css",
-    "static/js/main.9f92307f.js"
+    "static/css/main.a0598caf.css",
+    "static/js/main.ea674517.js"
   ]
 }
