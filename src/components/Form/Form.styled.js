@@ -66,9 +66,9 @@ export const InputBtns = styled.button`
     background-color: #26c2ae;
     color: #00474b;
   }
+
   &:hover {
-    background-color: #9fe8df;
-    color: #00474b;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 `;
 

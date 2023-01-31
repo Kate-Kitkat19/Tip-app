@@ -20,6 +20,47 @@ export const Form = forwardRef(function Form(props, ref) {
     setCustomTip(e.target.value);
   }
 
+  const buttons = [
+    <InputBtns type="button" key={5} onClick={e => handleBtnClick(e)} value={5}>
+      {5 + '%'}
+    </InputBtns>,
+    <InputBtns
+      type="button"
+      key={10}
+      onClick={e => handleBtnClick(e)}
+      value={10}
+    >
+      {10 + '%'}
+    </InputBtns>,
+
+    <InputBtns
+      type="button"
+      key={15}
+      onClick={e => handleBtnClick(e)}
+      value={15}
+    >
+      {15 + '%'}
+    </InputBtns>,
+
+    <InputBtns
+      type="button"
+      key={25}
+      onClick={e => handleBtnClick(e)}
+      value={25}
+    >
+      {25 + '%'}
+    </InputBtns>,
+
+    <InputBtns
+      type="button"
+      key={50}
+      onClick={e => handleBtnClick(e)}
+      value={50}
+    >
+      {50 + '%'}
+    </InputBtns>,
+  ];
+
   return (
     <FormStyled ref={ref}>
       <Label>
@@ -38,50 +79,7 @@ export const Form = forwardRef(function Form(props, ref) {
         {' '}
         Select tip %
         <BtnsWrapper>
-          <InputBtns
-            type="button"
-            key={5}
-            onClick={e => handleBtnClick(e)}
-            value={5}
-          >
-            {5 + '%'}
-          </InputBtns>
-
-          <InputBtns
-            type="button"
-            key={10}
-            onClick={e => handleBtnClick(e)}
-            value={10}
-          >
-            {10 + '%'}
-          </InputBtns>
-
-          <InputBtns
-            type="button"
-            key={15}
-            onClick={e => handleBtnClick(e)}
-            value={15}
-          >
-            {15 + '%'}
-          </InputBtns>
-
-          <InputBtns
-            type="button"
-            key={25}
-            onClick={e => handleBtnClick(e)}
-            value={25}
-          >
-            {25 + '%'}
-          </InputBtns>
-
-          <InputBtns
-            type="button"
-            key={50}
-            onClick={e => handleBtnClick(e)}
-            value={50}
-          >
-            {50 + '%'}
-          </InputBtns>
+          {buttons}
           <InputCustom
             type="text"
             placeholder="Custom"
